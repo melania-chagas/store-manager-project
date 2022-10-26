@@ -1,3 +1,4 @@
+/*SEED: termo usado quando se quer inserir dados nas tabelas de forma antecipada.  */
 USE `StoreManager`;
 
 SET FOREIGN_KEY_CHECKS = 0;
