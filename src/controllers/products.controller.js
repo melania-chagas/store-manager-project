@@ -22,7 +22,15 @@ const controllerGetProductById = async (req, res) => {
   });
 };
 
+const controllerRegisterProduct = async (req, res) => {
+  const { name } = req.body;
+  const result = await productsService.serviceRegisterProduct(name);
+
+  res.status(statusCode.Created).json(result);
+};
+
 module.exports = {
   controllerGetAllProducts,
   controllerGetProductById,
+  controllerRegisterProduct,
 };
