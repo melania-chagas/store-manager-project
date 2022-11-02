@@ -5,12 +5,14 @@ const {
   controllerGetAllProducts,
   controllerGetProductById,
   controllerRegisterProduct,
+  controllerUpdateProduct,
 } = productsController;
 const productRouter = express.Router();
 
 const productValidation = require('../middlewares/productValidation');
 
 productRouter.get('/:id', controllerGetProductById);
+productRouter.put('/:id', productValidation, controllerUpdateProduct);
 productRouter.get('/', controllerGetAllProducts);
 productRouter.post('/', productValidation, controllerRegisterProduct);
 

@@ -1,12 +1,18 @@
 const productsService = require('../services/products.service');
 
-const { serviceGetAllProducts, serviceGetById } = productsService;
-const statusCode = require('../helpers/statusCodes');
+const {
+  serviceGetAllProducts,
+  serviceGetById,
+  serviceRegisterProduct,
+  serviceUpdateProduct,
+} = productsService;
+
+const statusCodes = require('../helpers/statusCodes');
 const errorMessages = require('../helpers/errorMessages');
 
 const controllerGetAllProducts = async (_req, res) => {
   const result = await serviceGetAllProducts(); 
-  res.status(statusCode.OK).json(result);
+  res.status(statusCodes.OK).json(result);
 };
 
 const controllerGetProductById = async (req, res) => {
@@ -14,23 +20,33 @@ const controllerGetProductById = async (req, res) => {
   const result = await serviceGetById(id);
 
   if (result) {
-    return res.status(statusCode.OK).send(result);
+    return res.status(statusCodes.OK).send(result);
   }
 
-  res.status(statusCode.NotFound).json({
+  res.status(statusCodes.NotFound).json({
     message: errorMessages.notFoundData,
   });
 };
 
 const controllerRegisterProduct = async (req, res) => {
   const { name } = req.body;
-  const result = await productsService.serviceRegisterProduct(name);
+  const result = await serviceRegisterProduct(name);
 
-  res.status(statusCode.Created).json(result);
+  res.status(statusCodes.Created).json(result);
+};
+
+const controllerUpdateProduct = async (req, res) => {
+  const { name } = req.body;
+  const { id } = req.params;
+  
+  const { statusCode, message } = await serviceUpdateProduct(id, name);
+
+  res.status(statusCode).json(message);
 };
 
 module.exports = {
   controllerGetAllProducts,
   controllerGetProductById,
   controllerRegisterProduct,
+  controllerUpdateProduct,
 };
