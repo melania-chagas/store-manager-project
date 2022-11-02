@@ -7,6 +7,7 @@ const {serviceGetAllProducts, serviceGetById } = productsService
 const { products, product } = require("../mocks/products.mock");
 
 describe("Camada Service de produtos", function () {
+  
   it("Listar todos os produtos", async function () {
     sinon.stub(productsModel, "modelGetAllProducts").resolves([products]);
 
