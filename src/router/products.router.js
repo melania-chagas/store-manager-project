@@ -6,6 +6,7 @@ const {
   controllerGetProductById,
   controllerRegisterProduct,
   controllerUpdateProduct,
+  controllerDeleteProduct,
 } = productsController;
 const productRouter = express.Router();
 
@@ -15,6 +16,7 @@ productRouter.get('/:id', controllerGetProductById);
 productRouter.put('/:id', productValidation, controllerUpdateProduct);
 productRouter.get('/', controllerGetAllProducts);
 productRouter.post('/', productValidation, controllerRegisterProduct);
+productRouter.delete('/:id', controllerDeleteProduct);
 
 module.exports = {
   productRouter,

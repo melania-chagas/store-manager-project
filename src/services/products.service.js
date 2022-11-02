@@ -7,6 +7,7 @@ const {
   modelGetProductsById,
   modelRegisterProduct,
   modelUpdateProduct,
+  modelDeleteProduct,
 } = productsModel;
 
 const serviceGetAllProducts = async () => {
@@ -44,9 +45,28 @@ const serviceUpdateProduct = async (id, name) => {
   };
 };
 
+const serviceDeleteProduct = async (id) => {
+  const product = await serviceGetById(id);
+  if (!product || product === '') {
+    return {
+      statusCode: statusCodes.NotFound,
+      message: {
+        message: errorMessages.notFoundData,
+      },
+    };
+  }
+
+  await modelDeleteProduct(id);
+
+  return {
+    statusCode: statusCodes.NoContent,
+  };
+};
+
 module.exports = {
   serviceGetAllProducts,
   serviceGetById,
   serviceRegisterProduct,
   serviceUpdateProduct,
+  serviceDeleteProduct,
 };

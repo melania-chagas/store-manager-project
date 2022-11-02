@@ -5,6 +5,7 @@ const {
   serviceGetById,
   serviceRegisterProduct,
   serviceUpdateProduct,
+  serviceDeleteProduct,
 } = productsService;
 
 const statusCodes = require('../helpers/statusCodes');
@@ -44,9 +45,17 @@ const controllerUpdateProduct = async (req, res) => {
   res.status(statusCode).json(message);
 };
 
+const controllerDeleteProduct = async (req, res) => {
+  const { id } = req.params;
+  const { statusCode, message } = await serviceDeleteProduct(id);
+
+  res.status(statusCode).json(message);
+};
+
 module.exports = {
   controllerGetAllProducts,
   controllerGetProductById,
   controllerRegisterProduct,
   controllerUpdateProduct,
+  controllerDeleteProduct,
 };
