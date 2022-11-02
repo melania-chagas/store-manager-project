@@ -13,6 +13,7 @@ const modelGetAllSales = async () => {
 
   ON sales.id = sales_products.sale_id;`,
   );
+  
   return result;
 };
 
