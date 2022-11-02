@@ -10,11 +10,11 @@ chai.use(chaiHttp);
 
 const app = require("../../../src/app");
 const connection = require("../../../src/connection");
-const { products, product } = require("../mocks/products.mock");
+
+const {products, product } = require("../mocks/products.mock");
 const statusCode = require('../../../src/helpers/statusCodes');
 
-
-describe("Camada Model de produtos", function () {
+describe("Camada Controller de produtos", function () {
   it("Listar todos os produtos", async function () {
     sinon.stub(connection, "execute").resolves([products]);
 
@@ -43,6 +43,6 @@ describe("Camada Model de produtos", function () {
       message: "Product not found",
     });
   });
-
+  
   afterEach(sinon.restore);
 });

@@ -14,7 +14,12 @@ const product = {
   name: "Traje de encolhimento",
 };
 
+const registerProduct = {
+  name: "ProdutoX",
+};
+
 module.exports = {
   products,
   product,
+  registerProduct,
 };

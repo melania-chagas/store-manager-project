@@ -15,13 +15,13 @@ describe("Camada Service de produtos", function () {
     expect(result).to.deep.equal(products);
   });
 
-    it("Deve retornar o produto específico do id passado", async function () {
-      sinon.stub(productsModel, "modelGetProductsById").resolves([[product]]);
+  it("Deve retornar o produto específico do id passado", async function () {
+    sinon.stub(productsModel, "modelGetProductsById").resolves([[product]]);
 
-      const result = await serviceGetById(2);
+    const result = await serviceGetById(2);
 
-      expect(result).to.deep.equal(product);
-    });
+    expect(result).to.deep.equal(product);
+  });
 
     afterEach(sinon.restore);
   });
