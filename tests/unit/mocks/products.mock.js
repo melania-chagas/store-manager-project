@@ -1,4 +1,8 @@
-const products = [
+const products = [[
+  {
+    id: 1,
+    name: "Martelo de Thor",
+  },
   {
     id: 2,
     name: "Traje de encolhimento",
@@ -7,7 +11,7 @@ const products = [
     id: 3,
     name: "Escudo do Capitão América",
   },
-];
+]];
 
 const product = {
   id: 2,
@@ -15,8 +19,13 @@ const product = {
 };
 
 const registerProduct = {
+  id:1,
   name: "ProdutoX",
 };
+
+const deleteProduct = {
+  statusCode: 204,
+}
 
 module.exports = {
   products,

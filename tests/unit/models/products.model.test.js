@@ -3,7 +3,7 @@ const sinon = require('sinon');
 
 const connection = require('../../../src/connection');
 const productsModel = require('../../../src/models/products.model');
-const { modelGetAllProducts, modelGetProductsById } = productsModel;
+const { modelGetAllProducts, modelGetProductsById, modelRegisterProduct } = productsModel;
 const { products, product } = require('../mocks/products.mock');
 
 describe('Camada Model de produtos', function () {
@@ -27,7 +27,7 @@ describe('Camada Model de produtos', function () {
       
       expect(result).to.be.deep.equal(product);
     });
-    
+
     afterEach(() => {
       sinon.restore();
     })

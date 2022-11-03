@@ -5,12 +5,17 @@
     "containerId": "",
     "name": "localhost:3000/products",
     "url": "localhost:3000/products",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2022-10-26T23:13:15.318Z",
-    "modified": "2022-11-02T22:35:31.806Z",
+    "modified": "2022-11-03T21:21:31.493Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\"name\": \"ProdutoX\"\n} ",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -149,6 +154,20 @@
     "sortNum": 0,
     "created": "2022-11-02T17:35:06.037Z",
     "modified": "2022-11-02T17:35:06.118Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3500d2d0-a515-43ca-a61e-8b6576f79d5c",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://www.thunderclient.com/welcome",
+    "url": "https://www.thunderclient.com/welcome",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-03T20:43:47.750Z",
+    "modified": "2022-11-03T20:43:49.755Z",
     "headers": [],
     "params": [],
     "tests": []
