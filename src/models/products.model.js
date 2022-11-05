@@ -15,8 +15,8 @@ const modelRegisterProduct = async (product) => {
   const [{ insertId }] = await connection.execute(
     'INSERT INTO StoreManager.products(name) VALUE(?)', [product],
   );
-  // const [[newProduct]] = await modelGetProductsById(insertId);
-  const newProduct = { id: insertId, product };
+  const [[newProduct]] = await modelGetProductsById(insertId);
+  // const newProduct = { id: insertId, product };
 
   return newProduct;
 };
