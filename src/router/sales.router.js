@@ -9,12 +9,12 @@ const {
   controllerGetAllSales,
   controllerGetSaleById,
   controllerRegisterSale,
-  controllerDeleteSale,
+  // controllerDeleteSale,
 } = salesController;
 
 salesRouter.get('/:id', controllerGetSaleById);
 salesRouter.get('/', controllerGetAllSales);
 salesRouter.post('/', salesValidation, controllerRegisterSale);
-salesRouter.delete('/:id', controllerDeleteSale);
+// salesRouter.delete('/:id', controllerDeleteSale);
 
 module.exports = salesRouter;
