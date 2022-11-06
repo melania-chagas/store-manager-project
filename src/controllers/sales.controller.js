@@ -6,7 +6,7 @@ const {
   serviceGetAllSales,
   serviceGetSaleById,
   serviceRegisterSale,
-  // serviceDeleteSale,
+  serviceDeleteSale,
 } = serviceSales;
 
 const { Created } = statusCodes;
@@ -38,17 +38,17 @@ const controllerRegisterSale = async (req, res) => {
   });
 };
 
-// const controllerDeleteSale = async (req, res) => {
-//   const { id } = req.params;
+const controllerDeleteSale = async (req, res) => {
+  const { id } = req.params;
 
-//   const { statusCode, message } = await serviceDeleteSale(id);
+  const { statusCode, message } = await serviceDeleteSale(id);
 
-//   res.status(statusCode).json(message);
-// };
+  res.status(statusCode).json(message);
+};
 
 module.exports = {
   controllerGetAllSales,
   controllerGetSaleById,
   controllerRegisterSale,
-  // controllerDeleteSale,
+  controllerDeleteSale,
 };
