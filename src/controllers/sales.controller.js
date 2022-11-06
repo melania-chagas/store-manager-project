@@ -1,6 +1,10 @@
 const serviceSales = require('../services/sales.service');
 
+const { serviceRegisterSale } = serviceSales;
+const statusCodes = require('../helpers/statusCodes');
+
 const { serviceGetAllSales, serviceGetById } = serviceSales;
+const { Created } = statusCodes;
 
 const controllerGetAllSales = async (_req, res) => {
   const { statusCode, message } = await serviceGetAllSales();
@@ -15,7 +19,22 @@ const controllerGetSaleById = async (req, res) => {
   res.status(statusCode).json(message);
 };
 
+const controllerRegisterSale = async (req, res) => {
+  const newSale = req.body;
+
+  const { statusCode, message } = await serviceRegisterSale(newSale);
+
+  if (statusCode === Created) {
+    return res.status(statusCode).json(message);
+  }
+
+  res.status(statusCode).json({
+    message,
+  });
+};
+
 module.exports = {
   controllerGetAllSales,
   controllerGetSaleById,
+  controllerRegisterSale,
 };
