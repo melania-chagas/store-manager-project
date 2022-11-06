@@ -6,7 +6,7 @@ const {
   serviceGetAllSales,
   serviceGetSaleById,
   serviceRegisterSale,
-  serviceDeleteSale,
+  // serviceDeleteSale,
 } = serviceSales;
 
 const { Created } = statusCodes;
