@@ -10,9 +10,10 @@ const {
   modelGetById,
   modelRegisterSale,
   modelRegisterSaleInTheDatabase,
+  modelDeleteSale,
 } = salesModel;
 
-const { OK, NotFound, Created } = statusCodes;
+const { OK, NotFound, Created, NoContent } = statusCodes;
 const { NotFoundSale, notFoundData } = errorMessages;
 
 const serviceGetAllSales = async () => {
@@ -88,8 +89,24 @@ const serviceRegisterSale = async (sale) => {
   };
 };
 
+const serviceDeleteSale = async (id) => {
+  const saleId = await serviceGetSaleById(id);
+  
+  if (saleId.statusCode === NotFound) {
+    return saleId;
+  }
+
+  await modelDeleteSale(id);
+
+  return {
+    statusCode: NoContent,
+    message: undefined,
+  };
+};
+
 module.exports = {
   serviceGetAllSales,
   serviceGetSaleById,
   serviceRegisterSale,
+  serviceDeleteSale,
 };

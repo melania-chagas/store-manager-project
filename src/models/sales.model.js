@@ -58,9 +58,18 @@ const modelRegisterSaleInTheDatabase = async (sale) => {
   );
 };
 
+const modelDeleteSale = async (id) => {
+  const [{ affectedRows }] = await connection.execute(
+    `DELETE FROM StoreManager.sales
+    WHERE id = ?`, [id],
+  );
+  return affectedRows;
+};
+
 module.exports = {
   modelGetAllSales,
   modelGetById,
   modelRegisterSale,
   modelRegisterSaleInTheDatabase,
+  modelDeleteSale,
 };
