@@ -77,7 +77,6 @@ const serviceRegisterSale = async (sale) => {
   }
 
   const saleId = await modelRegisterSale();
-
   serviceRegisterSaleInDatabase(saleId, sale);
 
   return {
