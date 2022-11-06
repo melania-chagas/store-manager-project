@@ -3,7 +3,7 @@ const serviceSales = require('../services/sales.service');
 const { serviceRegisterSale } = serviceSales;
 const statusCodes = require('../helpers/statusCodes');
 
-const { serviceGetAllSales, serviceGetById } = serviceSales;
+const { serviceGetAllSales, serviceGetSaleById } = serviceSales;
 const { Created } = statusCodes;
 
 const controllerGetAllSales = async (_req, res) => {
@@ -14,7 +14,7 @@ const controllerGetAllSales = async (_req, res) => {
 
 const controllerGetSaleById = async (req, res) => {
   const { id } = req.params;
-  const { statusCode, message } = await serviceGetById(id);
+  const { statusCode, message } = await serviceGetSaleById(id);
 
   res.status(statusCode).json(message);
 };
