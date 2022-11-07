@@ -4,37 +4,40 @@ const sinon = require("sinon");
 
 const salesModel = require("../../../src/models/sales.model");
 const salesService = require("../../../src/services/sales.service");
+const productsModel = require('../../../src/models/products.model');
 const productsService = require('../../../src/services/products.service');
-const { bodyMock, response } = require("../mocks/sales.mocks");
+const {
+  bodyMock,
+  response,
+  bodyMockProductIdLessThan1,
+  bodyMockQuantityLacking,
+  bodyMockProductIdLacking,
+} = require("../mocks/sales.mocks");
 
 const { serviceRegisterSale } = salesService;
 
-describe("Camada service de vendas", function () {
-  it("Verifica se é possível registrar uma nova venda", async function () {
-    sinon.stub(salesModel, "modelRegisterSale").resolves(1);
-    sinon.stub(productsService, "serviceGetById").resolves({
-      id: 1,
-      name: "Martelo de Thor",
-    });
-    sinon.stub(salesModel, "modelRegisterSaleInTheDatabase").resolves();
+describe("Camada service de vendas", () => {
+  beforeEach(sinon.restore);
 
-    const result = await   serviceRegisterSale(bodyMock);
-
-    expect(result).to.deep.equal(response);
-  });
-
-  it("Deve retornar um erro caso o productId seja inválido", async function () {
-    sinon.stub(salesModel, "modelRegisterSale").resolves(1);
-    sinon.stub(productsService, "serviceGetById").resolves(false);
-    sinon.stub(salesModel, "modelRegisterSaleInTheDatabase").resolves();
-
-    const result = await serviceRegisterSale(bodyMock);
-
+  it("Deve retornar um erro quando o productId é menor que 1", async () => {
+    const result = await serviceRegisterSale(bodyMockProductIdLessThan1);
     expect(result).to.deep.equal({
-      statusCode: 404,
-      message: "Product not found",
+      message: '"productId" must be greater than or equal to 1',
     });
   });
 
-  afterEach(sinon.restore);
+  it("Deve retornar um erro quando a quantity não é passada", async () => {
+    const result = await serviceRegisterSale(bodyMockQuantityLacking);
+    expect(result).to.deep.equal({
+      message: '"quantity" is required',
+    });
+  });
+
+  it("Deve retornar um erro quando o productId não é passado", async () => {
+    const result = await salesService.registerSales(bodyMockProductIdLacking);
+    expect(result).to.deep.equal({
+      message: '"productId" is required',
+    });
+  });
+
 });

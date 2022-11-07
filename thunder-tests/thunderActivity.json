@@ -83,12 +83,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-06T00:34:35.174Z",
-    "modified": "2022-11-06T14:11:40.321Z",
+    "modified": "2022-11-07T12:33:26.363Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n    \"quantity\": 1\n  }\n]",
       "form": []
     },
     "tests": []

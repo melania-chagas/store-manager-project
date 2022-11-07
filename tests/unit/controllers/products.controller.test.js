@@ -14,8 +14,7 @@ const connection = require("../../../src/connection");
 const { products, product } = require("../mocks/products.mock");
 const statusCode = require('../../../src/helpers/statusCodes');
 const errorMessages = require('../../../src/helpers/errorMessages');
-const productsService = require('../../../src/services/products.service');
-const productsController = require("../../../src/controllers/products.controller");
+
 
 describe("Camada Controller de produtos", function () {
   it("Listar todos os produtos", async function () {

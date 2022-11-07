@@ -7,10 +7,25 @@ const bodyMock = [
   {
     productId: 1,
     quantity: 1,
-  },
+  }
+];
+
+const bodyMockProductIdLessThan1 = [
   {
-    productId: 2,
-    quantity: 5,
+    productId: -1 ,
+    quantity: 1,
+  },
+];
+
+const bodyMockQuantityLacking = [
+  {
+    productId: 1,
+  },
+];
+
+const bodyMockProductIdLacking = [
+  {
+    quantity: 0,
   },
 ];
 
@@ -26,4 +41,7 @@ module.exports = {
   productX,
   bodyMock,
   response,
+  bodyMockProductIdLessThan1,
+  bodyMockQuantityLacking,
+  bodyMockProductIdLacking,
 };
