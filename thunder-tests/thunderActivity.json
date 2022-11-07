@@ -66,10 +66,10 @@
     "containerId": "",
     "name": "localhost:3000/sales",
     "url": "localhost:3000/sales",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2022-11-06T00:34:09.991Z",
-    "modified": "2022-11-06T00:34:10.095Z",
+    "modified": "2022-11-07T13:19:20.530Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -83,7 +83,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-06T00:34:35.174Z",
-    "modified": "2022-11-07T12:33:26.363Z",
+    "modified": "2022-11-07T13:39:48.620Z",
     "headers": [],
     "params": [],
     "body": {
